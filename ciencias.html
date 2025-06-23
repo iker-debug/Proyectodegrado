@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ciencias Naturales para Niños</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom right, #e0f7fa, #fff8e1);
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      color: #2e7d32;
+    }
+    .info, .game {
+      background: #ffffffcc;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #00897b;
+    }
+    button {
+      background-color: #4db6ac;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:disabled {
+      background-color: #cfd8dc;
+      cursor: not-allowed;
+    }
+    .question {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ciencias Naturales para Niños</h1>
+
+  <div class="info">
+    <h2>¿Qué son las Ciencias Naturales?</h2>
+    <p>Las ciencias naturales son un conjunto de disciplinas científicas que estudian la naturaleza y los fenómenos que ocurren en ella. Incluyen áreas como la biología, la física, la química, la geología y la astronomía. Su objetivo es comprender el universo físico, la vida y sus procesos mediante la observación, la investigación y la experimentación. Estas ciencias permiten explicar cómo funciona el mundo natural y ayudan a mejorar la vida humana.</p>
+  </div>
+
+  <div class="game">
+    <h2>Juego: Partes del cuerpo</h2>
+    <p class="question">¿Con qué parte del cuerpo vemos?</p>
+    <button onclick="responder(this, true)">Ojos</button>
+    <button onclick="responder(this, false)">Orejas</button>
+    <button onclick="responder(this, false)">Manos</button>
+  </div>
+
+  <div class="game">
+    <h2>Juego: Partes de una planta</h2>
+    <p class="question">¿Cuál es la parte que absorbe el agua del suelo?</p>
+    <button onclick="responder(this, false)">Flor</button>
+    <button onclick="responder(this, true)">Raíz</button>
+    <button onclick="responder(this, false)">Hoja</button>
+  </div>
+
+  <div class="game">
+    <h2>Juego: Animales domésticos</h2>
+    <p class="question">¿Cuál de estos es un animal doméstico?</p>
+    <button onclick="responder(this, true)">Gato</button>
+    <button onclick="responder(this, false)">Tigre</button>
+    <button onclick="responder(this, false)">León</button>
+  </div>
+
+  <div class="game">
+    <h2>Juego: ¿Dónde viven?</h2>
+    <p class="question">¿Dónde vive un pez?</p>
+    <button onclick="responder(this, true)">Agua</button>
+    <button onclick="responder(this, false)">Tierra</button>
+    <button onclick="responder(this, false)">Aire</button>
+  </div>
+
+  <div class="game">
+    <h2>Juego: ¿Qué necesitamos para vivir?</h2>
+    <p class="question">¿Qué necesitamos para respirar?</p>
+    <button onclick="responder(this, true)">Aire</button>
+    <button onclick="responder(this, false)">Fuego</button>
+    <button onclick="responder(this, false)">Arena</button>
+  </div>
+
+  <script>
+    function responder(button, correcto) {
+      if (correcto) {
+        button.style.backgroundColor = '#66bb6a';
+        alert("¡Correcto!");
+      } else {
+        button.style.backgroundColor = '#ef5350';
+        alert("Intenta otra vez.");
+      }
+      const buttons = button.parentElement.querySelectorAll('button');
+      buttons.forEach(btn => btn.disabled = true);
+    }
+  </script>
+
+<section class="game-section" style="background-color:#e1f5fe;padding:20px;margin:20px;border-radius:12px;">
+  <h2 style="color:#0277bd;">Juego: Clasifica los Animales</h2>
+  <p>Haz clic en los animales y decide si son domesticos o salvajes:</p>
+  <div style="display:flex;flex-wrap:wrap;gap:15px;margin-top:15px;">
+    <button onclick="clasificarAnimal(this, 'domestico')" style="padding:15px;background-color:#fff3e0;border-radius:10px;">🐶 Perro</button>
+    <button onclick="clasificarAnimal(this, 'salvaje')" style="padding:15px;background-color:#fff3e0;border-radius:10px;">🦁 León</button>
+    <button onclick="clasificarAnimal(this, 'domestico')" style="padding:15px;background-color:#fff3e0;border-radius:10px;">🐱 Gato</button>
+    <button onclick="clasificarAnimal(this, 'salvaje')" style="padding:15px;background-color:#fff3e0;border-radius:10px;">🐘 Elefante</button>
+    <button onclick="clasificarAnimal(this, 'domestico')" style="padding:15px;background-color:#fff3e0;border-radius:10px;">🐮 Vaca</button>
+    <button onclick="clasificarAnimal(this, 'salvaje')" style="padding:15px;background-color:#fff3e0;border-radius:10px;">🦓 Cebra</button>
+  </div>
+  <div id="resultadoClasificacion" style="margin-top:20px;font-weight:bold;"></div>
+</section>
+
+<script>
+function clasificarAnimal(button, tipoCorrecto) {
+  const respuesta = prompt("¿Este animal es doméstico o salvaje?");
+  if (respuesta.toLowerCase() === tipoCorrecto) {
+    button.style.backgroundColor = "#a5d6a7";
+    document.getElementById("resultadoClasificacion").innerText = "¡Correcto!";
+  } else {
+    button.style.backgroundColor = "#ef9a9a";
+    document.getElementById("resultadoClasificacion").innerText = "Ups, intenta de nuevo.";
+  }
+}
+</script>
+
+</body>
+</html>

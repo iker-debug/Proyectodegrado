@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Aprendamos sobre los Animales</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #FFFAF0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4FC3F7;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    .animal-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .animal-card {
+      background: #FFF9C4;
+      border-radius: 10px;
+      padding: 15px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 2px 2px 5px #aaa;
+    }
+    .animal-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .animal-card button {
+      margin-top: 10px;
+      background-color: #81C784;
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .animal-card button:hover {
+      background-color: #66BB6A;
+    }
+    .info {
+      background: #FFECB3;
+      padding: 20px;
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 20px auto;
+      max-width: 90%;
+    }
+    .game-section {
+      background-color: #F0F4C3;
+      padding: 20px;
+      text-align: center;
+    }
+    .game-box {
+      margin-top: 10px;
+      background: #E1F5FE;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>¡Aprende sobre los Animales!</h1>
+</header>
+
+<div class="info">
+  <p>Los animales son seres vivos que se mueven, respiran y sienten. Existen animales de todos los tamaños, formas y colores. Pueden vivir en la tierra, el agua o el aire. ¡Vamos a conocer algunos!</p>
+</div>
+
+<section class="animal-section">
+  <div class="animal-card">
+    <h3>Perro</h3>
+    <img src="perro.jpg" alt="Perro">
+    <button onclick="document.getElementById('audio-perro').play()">Escuchar</button>
+    <audio id="audio-perro" src="perroladrando.mp3"></audio>
+  </div>
+  <div class="animal-card">
+    <h3>Vaca</h3>
+    <img src="vaca.jpg" alt="Vaca">
+    <button onclick="document.getElementById('audio-vaca').play()">Escuchar</button>
+    <audio id="audio-vaca" src="vacasonido.mp3"></audio>
+  </div>
+  <div class="animal-card">
+    <h3>Gato</h3>
+    <img src="https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_960_720.jpg" alt="Gato">
+    <button onclick="document.getElementById('audio-gato').play()">Escuchar</button>
+    <audio id="audio-gato" src="sonidodegato.mp3"></audio>
+  </div>
+  <div class="animal-card">
+    <h3>Elefante</h3>
+    <img src="elefante.jpg" alt="Elefante">
+    <button onclick="document.getElementById('audio-elefante').play()">Escuchar</button>
+    <audio id="audio-elefante" src="sonidodeelefante.mp3"></audio>
+  </div>
+  <div class="animal-card">
+    <h3>León</h3>
+    <img src="leon.jpg" alt="León">
+    <button onclick="document.getElementById('audio-leon').play()">Escuchar</button>
+    <audio id="audio-leon" src="sonidodeleon.mp3"></audio>
+  </div>
+</section>
+
+<iframe width="560" height="315" src="videoanimales.mp4" frameborder="0" allowfullscreen></iframe>
+
+<section class="game-section">
+  
+
+<script>
+  function playGameSound() {
+    const sounds = [
+      {animal: 'perro', sound: 'https://www.soundjay.com/animal/dog-barking-1.mp3'},
+      {animal: 'gato', sound: 'https://www.soundjay.com/animal/cat-meow-1.mp3'},
+      {animal: 'vaca', sound: 'https://www.soundjay.com/animal/cow-moo1.mp3'}
+    ];
+    const random = sounds[Math.floor(Math.random() * sounds.length)];
+    const audio = new Audio(random.sound);
+    audio.play();
+    window.animalCorrecto = random.animal;
+  }
+
+  function checkAnswer(respuesta) {
+    const correcto = (respuesta === window.animalCorrecto);
+    document.getElementById('respuesta-juego1').innerText = correcto ? "¡Correcto!" : "¡Intenta de nuevo!";
+  }
+
+  function clasificarAnimal(respuesta) {
+    const correcto = (respuesta === 'agua');
+    document.getElementById('respuesta-juego2').innerText = correcto ? "¡Muy bien, vive en el agua!" : "¡No! Intenta otra vez.";
+  }
+</script>
+
+</body>
+</html>
+
+<section id="juegos" style="background-color: #fff3e0; padding: 40px; border-radius: 15px; margin: 30px;">
+  <h2 style="color: #e65100; font-size: 28px; margin-bottom: 20px;">¡Juegos Divertidos!</h2>
+
+  <!-- Juego 1: Adivina el Animal por el Sonido -->
+  <div style="margin-bottom: 30px;">
+    <h3>🎧 Adivina el animal por su sonido</h3>
+    <p>Escucha el sonido y elige el animal correcto:</p>
+    <button onclick="document.getElementById('animalSound').play()">🔊 Escuchar sonido</button>
+    <audio id="animalSound" src="sonidodegato.mp3"></audio><br><br>
+    <button onclick="alert('Incorrecto. Intenta otra vez.')">🐶 Perro</button>
+    <button onclick="alert('Correcto 🎉')">🐱 Gato</button>
+    <button onclick="alert('Incorrecto. Intenta otra vez.')">🐴 Caballo</button>
+  </div>
+
+  <!-- Juego 2: Clasifica el Animal -->
+  <div>
+    <h3>🧠 Clasifica el animal</h3>
+    <p>¿Dónde vive este animal?</p>
+    <img src="pingüino.jpg" alt="Pingüino" width="300"><br><br>
+    <button onclick="alert('Correcto 🎉')">🌊 Agua / Hielo</button>
+    <button onclick="alert('Incorrecto. Intenta otra vez.')">🌳 Bosque</button>
+    <button onclick="alert('Incorrecto. Intenta otra vez.')">🏜️ Desierto</button>
+  </div>
+
+  <!-- Juego 3: Empareja al animal -->
+  <div style="margin-top: 30px;">
+    <h3>🧩 Empareja el animal con su imagen</h3>
+    <p>¿Cuál de estas imágenes es un elefante?</p>
+    <button onclick="alert('Correcto 🎉')">
+      <img src="elefante2.jpg" width="200">
+    </button>
+    <button onclick="alert('Incorrecto. Intenta otra vez.')">
+      <img src="venado.jpg" width="200">
+    </button>
+    <button onclick="alert('Incorrecto. Intenta otra vez.')">
+      <img src="oveja.jpg" width="200">
+    </button>
+  </div>
+</section>

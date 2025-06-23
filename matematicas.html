@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Matemáticas Divertidas</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom, #fff8dc, #ffe082);
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #d84315;
+    }
+    .intro {
+      background-color: #fffde7;
+      padding: 20px;
+      margin: 20px;
+      border-left: 8px solid #ffca28;
+      border-radius: 12px;
+      font-size: 18px;
+    }
+    .numeros {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 10px;
+      margin: 20px;
+      text-align: center;
+    }
+    .numero {
+      background-color: #fff9c4;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .juegos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px;
+    }
+    .juego {
+      background-color: #fff3e0;
+      padding: 20px;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 100px;
+      margin: 5px;
+    }
+    button {
+      background-color: #ffa000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .resultado {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  
+<style>
+  .numero {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .numero.activo {
+    background-color: #f8bbd0 !important;
+    transform: scale(1.3);
+  }
+</style>
+
+</style>
+</head>
+<body>
+
+  <h1>¡Juega con las Matemáticas!</h1>
+
+  <div class="intro">
+    <h2>¿Qué son las Matemáticas?</h2>
+    <p>Las matemáticas nos ayudan a resolver problemas, contar objetos, entender medidas, tiempo y dinero. ¡Son esenciales para la vida diaria y pueden ser muy entretenidas si aprendemos jugando!</p>
+  </div>
+
+  <h2>Números del 1 al 100</h2>
+  <div class="numeros"><div class="numero"><strong>1</strong><br>Uno</div>
+<div class="numero"><strong>2</strong><br>Dos</div>
+<div class="numero"><strong>3</strong><br>Tres</div>
+<div class="numero"><strong>4</strong><br>Cuatro</div>
+<div class="numero"><strong>5</strong><br>Cinco</div>
+<div class="numero"><strong>6</strong><br>Seis</div>
+<div class="numero"><strong>7</strong><br>Siete</div>
+<div class="numero"><strong>8</strong><br>Ocho</div>
+<div class="numero"><strong>9</strong><br>Nueve</div>
+<div class="numero"><strong>10</strong><br>Diez</div>
+<div class="numero"><strong>11</strong><br>Once</div>
+<div class="numero"><strong>12</strong><br>Doce</div>
+<div class="numero"><strong>13</strong><br>Trece</div>
+<div class="numero"><strong>14</strong><br>Catorce</div>
+<div class="numero"><strong>15</strong><br>Quince</div>
+<div class="numero"><strong>16</strong><br>Dieciséis</div>
+<div class="numero"><strong>17</strong><br>Diecisiete</div>
+<div class="numero"><strong>18</strong><br>Dieciocho</div>
+<div class="numero"><strong>19</strong><br>Diecinueve</div>
+<div class="numero"><strong>20</strong><br>Veinte</div>
+<div class="numero"><strong>21</strong><br>Veintiuno</div>
+<div class="numero"><strong>22</strong><br>Veintidós</div>
+<div class="numero"><strong>23</strong><br>Veintitrés</div>
+<div class="numero"><strong>24</strong><br>Veinticuatro</div>
+<div class="numero"><strong>25</strong><br>Veinticinco</div>
+<div class="numero"><strong>26</strong><br>Veintiséis</div>
+<div class="numero"><strong>27</strong><br>Veintisiete</div>
+<div class="numero"><strong>28</strong><br>Veintiocho</div>
+<div class="numero"><strong>29</strong><br>Veintinueve</div>
+<div class="numero"><strong>30</strong><br>Treinta</div>
+<div class="numero"><strong>31</strong><br>Treinta Y Uno</div>
+<div class="numero"><strong>32</strong><br>Treinta Y Dos</div>
+<div class="numero"><strong>33</strong><br>Treinta Y Tres</div>
+<div class="numero"><strong>34</strong><br>Treinta Y Cuatro</div>
+<div class="numero"><strong>35</strong><br>Treinta Y Cinco</div>
+<div class="numero"><strong>36</strong><br>Treinta Y Seis</div>
+<div class="numero"><strong>37</strong><br>Treinta Y Siete</div>
+<div class="numero"><strong>38</strong><br>Treinta Y Ocho</div>
+<div class="numero"><strong>39</strong><br>Treinta Y Nueve</div>
+<div class="numero"><strong>40</strong><br>Cuarenta</div>
+<div class="numero"><strong>41</strong><br>Cuarenta Y Uno</div>
+<div class="numero"><strong>42</strong><br>Cuarenta Y Dos</div>
+<div class="numero"><strong>43</strong><br>Cuarenta Y Tres</div>
+<div class="numero"><strong>44</strong><br>Cuarenta Y Cuatro</div>
+<div class="numero"><strong>45</strong><br>Cuarenta Y Cinco</div>
+<div class="numero"><strong>46</strong><br>Cuarenta Y Seis</div>
+<div class="numero"><strong>47</strong><br>Cuarenta Y Siete</div>
+<div class="numero"><strong>48</strong><br>Cuarenta Y Ocho</div>
+<div class="numero"><strong>49</strong><br>Cuarenta Y Nueve</div>
+<div class="numero"><strong>50</strong><br>Cincuenta</div>
+<div class="numero"><strong>51</strong><br>Cincuenta Y Uno</div>
+<div class="numero"><strong>52</strong><br>Cincuenta Y Dos</div>
+<div class="numero"><strong>53</strong><br>Cincuenta Y Tres</div>
+<div class="numero"><strong>54</strong><br>Cincuenta Y Cuatro</div>
+<div class="numero"><strong>55</strong><br>Cincuenta Y Cinco</div>
+<div class="numero"><strong>56</strong><br>Cincuenta Y Seis</div>
+<div class="numero"><strong>57</strong><br>Cincuenta Y Siete</div>
+<div class="numero"><strong>58</strong><br>Cincuenta Y Ocho</div>
+<div class="numero"><strong>59</strong><br>Cincuenta Y Nueve</div>
+<div class="numero"><strong>60</strong><br>Sesenta</div>
+<div class="numero"><strong>61</strong><br>Sesenta Y Uno</div>
+<div class="numero"><strong>62</strong><br>Sesenta Y Dos</div>
+<div class="numero"><strong>63</strong><br>Sesenta Y Tres</div>
+<div class="numero"><strong>64</strong><br>Sesenta Y Cuatro</div>
+<div class="numero"><strong>65</strong><br>Sesenta Y Cinco</div>
+<div class="numero"><strong>66</strong><br>Sesenta Y Seis</div>
+<div class="numero"><strong>67</strong><br>Sesenta Y Siete</div>
+<div class="numero"><strong>68</strong><br>Sesenta Y Ocho</div>
+<div class="numero"><strong>69</strong><br>Sesenta Y Nueve</div>
+<div class="numero"><strong>70</strong><br>Setenta</div>
+<div class="numero"><strong>71</strong><br>Setenta Y Uno</div>
+<div class="numero"><strong>72</strong><br>Setenta Y Dos</div>
+<div class="numero"><strong>73</strong><br>Setenta Y Tres</div>
+<div class="numero"><strong>74</strong><br>Setenta Y Cuatro</div>
+<div class="numero"><strong>75</strong><br>Setenta Y Cinco</div>
+<div class="numero"><strong>76</strong><br>Setenta Y Seis</div>
+<div class="numero"><strong>77</strong><br>Setenta Y Siete</div>
+<div class="numero"><strong>78</strong><br>Setenta Y Ocho</div>
+<div class="numero"><strong>79</strong><br>Setenta Y Nueve</div>
+<div class="numero"><strong>80</strong><br>Ochenta</div>
+<div class="numero"><strong>81</strong><br>Ochenta Y Uno</div>
+<div class="numero"><strong>82</strong><br>Ochenta Y Dos</div>
+<div class="numero"><strong>83</strong><br>Ochenta Y Tres</div>
+<div class="numero"><strong>84</strong><br>Ochenta Y Cuatro</div>
+<div class="numero"><strong>85</strong><br>Ochenta Y Cinco</div>
+<div class="numero"><strong>86</strong><br>Ochenta Y Seis</div>
+<div class="numero"><strong>87</strong><br>Ochenta Y Siete</div>
+<div class="numero"><strong>88</strong><br>Ochenta Y Ocho</div>
+<div class="numero"><strong>89</strong><br>Ochenta Y Nueve</div>
+<div class="numero"><strong>90</strong><br>Noventa</div>
+<div class="numero"><strong>91</strong><br>Noventa Y Uno</div>
+<div class="numero"><strong>92</strong><br>Noventa Y Dos</div>
+<div class="numero"><strong>93</strong><br>Noventa Y Tres</div>
+<div class="numero"><strong>94</strong><br>Noventa Y Cuatro</div>
+<div class="numero"><strong>95</strong><br>Noventa Y Cinco</div>
+<div class="numero"><strong>96</strong><br>Noventa Y Seis</div>
+<div class="numero"><strong>97</strong><br>Noventa Y Siete</div>
+<div class="numero"><strong>98</strong><br>Noventa Y Ocho</div>
+<div class="numero"><strong>99</strong><br>Noventa Y Nueve</div>
+<div class="numero"><strong>100</strong><br>Cien</div></div>
+
+  
+  <h2>Juegos de Operaciones</h2>
+  <div class="juegos">
+    <div class="juego">
+      <h3>Juego de Suma</h3>
+      <p id="sum-preg"></p>
+      <input type="number" id="suma">
+      <button onclick="verificarJuego('suma')">Verificar</button>
+      <div class="resultado" id="res-suma"></div>
+    </div>
+    <div class="juego">
+      <h3>Juego de Resta</h3>
+      <p id="res-preg"></p>
+      <input type="number" id="resta">
+      <button onclick="verificarJuego('resta')">Verificar</button>
+      <div class="resultado" id="res-resta"></div>
+    </div>
+    <div class="juego">
+      <h3>Juego de Multiplicación</h3>
+      <p id="mul-preg"></p>
+      <input type="number" id="multi">
+      <button onclick="verificarJuego('multi')">Verificar</button>
+      <div class="resultado" id="res-multi"></div>
+    </div>
+    <div class="juego">
+      <h3>Juego de División</h3>
+      <p id="div-preg"></p>
+      <input type="number" id="divi">
+      <button onclick="verificarJuego('divi')">Verificar</button>
+      <div class="resultado" id="res-divi"></div>
+    </div>
+  </div>
+
+
+  <script>
+    function verificar(id, correcto) {
+      const valor = parseInt(document.getElementById(id).value);
+      const resultado = document.getElementById("res-" + id);
+      if (valor === correcto) {
+        resultado.textContent = "¡Correcto! 🎉";
+        resultado.style.color = "green";
+      } else {
+        resultado.textContent = "Intenta de nuevo";
+        resultado.style.color = "red";
+      }
+    }
+  </script>
+
+
+  <h2>Crea tu Propia Operación</h2>
+  <div class="personalizada">
+    <div class="juego">
+      <h3>Elige tus números y operación</h3>
+      <input type="number" id="num1" placeholder="Número 1">
+      <select id="operacion">
+        <option value="+">+</option>
+        <option value="-">−</option>
+        <option value="*">×</option>
+        <option value="/">÷</option>
+      </select>
+      <input type="number" id="num2" placeholder="Número 2">
+      <br>
+      <button onclick="calcular()">Calcular</button>
+      <div class="resultado" id="resultado"></div>
+    </div>
+  </div>
+
+  <script>
+    function calcular() {
+      const n1 = parseFloat(document.getElementById("num1").value);
+      const n2 = parseFloat(document.getElementById("num2").value);
+      const op = document.getElementById("operacion").value;
+      let res = "";
+
+      if (isNaN(n1) || isNaN(n2)) {
+        res = "Por favor ingresa dos números válidos.";
+      } else {
+        switch(op) {
+          case '+': res = n1 + n2; break;
+          case '-': res = n1 - n2; break;
+          case '*': res = n1 * n2; break;
+          case '/': res = n2 !== 0 ? (n1 / n2).toFixed(2) : "No se puede dividir por 0"; break;
+        }
+        res = "Resultado: " + res;
+      }
+
+      document.getElementById("resultado").innerText = res;
+    }
+  </script>
+
+  
+<script>
+  const juegos = {
+    suma: { a: 0, b: 0 },
+    resta: { a: 0, b: 0 },
+    multi: { a: 0, b: 0 },
+    divi: { a: 0, b: 1 }
+  };
+
+  function nuevaOperacion(tipo) {
+    const a = Math.floor(Math.random() * 10) + 1;
+    const b = Math.floor(Math.random() * 10) + 1;
+    juegos[tipo].a = a;
+    juegos[tipo].b = b;
+    let texto = "";
+    if (tipo === "suma") texto = `¿Cuánto es ${a} + ${b}?`;
+    if (tipo === "resta") texto = `¿Cuánto es ${a + b} - ${b}?`;
+    if (tipo === "multi") texto = `¿Cuánto es ${a} × ${b}?`;
+    if (tipo === "divi") texto = `¿Cuánto es ${a * b} ÷ ${b}?`;
+    document.getElementById(tipo.slice(0,3) + "-preg").innerText = texto;
+  }
+
+  function verificarJuego(tipo) {
+    const id = tipo === "suma" ? "suma" : tipo === "resta" ? "resta" : tipo === "multi" ? "multi" : "divi";
+    const a = juegos[tipo].a;
+    const b = juegos[tipo].b;
+    const input = parseInt(document.getElementById(id).value);
+    let correcto = 0;
+    if (tipo === "suma") correcto = a + b;
+    if (tipo === "resta") correcto = a;
+    if (tipo === "multi") correcto = a * b;
+    if (tipo === "divi") correcto = a;
+    const res = document.getElementById("res-" + id);
+    if (input === correcto) {
+      res.innerText = "¡Correcto! 🎉";
+      res.style.color = "green";
+      nuevaOperacion(tipo);
+    } else {
+      res.innerText = "Intenta de nuevo";
+      res.style.color = "red";
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    ["suma", "resta", "multi", "divi"].forEach(nuevaOperacion);
+  });
+</script>
+</body>
+
+</html>

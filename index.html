@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kids - Aprende Jugando</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2f3d8a289b.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Fredoka', sans-serif;
+    }
+    body {
+      background: linear-gradient(to bottom, #fffde7, #e8f5e9);
+      color: #900404;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #900404;
+      border-bottom: 5px solid #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .logo {
+      height: 70px;
+    }
+    nav {
+      position: relative;
+    }
+    .menu-btn {
+      background-color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      top: 45px;
+      right: 0;
+      min-width: 200px;
+      z-index: 1000;
+    }
+    .dropdown a {
+      display: block;
+      padding: 12px;
+      color: #900404;
+      text-decoration: none;
+      border-bottom: 1px solid #ffd54f;
+    }
+    .dropdown a:hover {
+      background-color: #fff59d;
+    }
+    .hero {
+      background: url('https://cdn.pixabay.com/photo/2017/09/25/13/12/learn-2780912_1280.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 60px;
+      color: #fff;
+      position: relative;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .hero::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+    }
+    .hero h1, .hero p {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #f1f8e9;
+    }
+    .section h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #900404;
+    }
+    .topics {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .topic-card {
+      width: 250px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .topic-card:hover {
+      transform: scale(1.05);
+    }
+    .topic-card i {
+      font-size: 40px;
+      color: #fbc02d;
+      margin-bottom: 10px;
+    }
+    .info-box {
+      background-color: #fffde7;
+      border-left: 10px solid #900404;
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 700px;
+      border-radius: 10px;
+      text-align: left;
+    }
+    .info-box h3 {
+      margin-bottom: 10px;
+      color: #900404;
+    }
+    .info-box p {
+      font-size: 16px;
+    }
+    .imagenes-extra {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .imagenes-extra img {
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .interactive-content {
+      display: none;
+      padding: 40px;
+      background-color: #000000;
+      margin: 30px;
+      border-radius: 12px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    footer {
+      background-color: #fffde7;
+      padding: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="FyA.png" alt="Logo" class="logo">
+    <nav>
+      <button class="menu-btn" onclick="toggleDropdown()">Menu</button>
+      <div class="dropdown" id="dropdownMenu">
+  <a href="matematicas.html">Matemáticas</a>
+  <a href="lenguaje.html">Lenguaje</a>
+  <a href="ciencias.html">Ciencias Naturales</a>
+  <a href="animales.html">Cómo dicen los animales</a>
+  <a href="colores.html">Colores</a>
+  <a href="himnodelecuador.html">Himno del Ecuador</a>
+  <a href="himnodefeyalegria.HTML">Himno de Fe y Alegría</a>
+      </div>
+
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Aprende Jugando con la Tecnología</h1>
+    <p>Explora mundos de conocimiento, música, matemáticas y naturaleza</p>
+  </section>
+
+  <section class="section" id="temas">
+    <h2>Temas Interactivos</h2>
+    <div class="topics">
+      <div class="topic-card"><i class="fas fa-calculator"></i><h3>Matemáticas</h3><p>Sumas, restas, juegos de memoria y desafíos numéricos.</p></div>
+      <div class="topic-card"><i class="fas fa-book-reader"></i><h3>Lenguaje</h3><p>Vocales, escritura creativa, lectura en voz alta y más.</p></div>
+      <div class="topic-card"><i class="fas fa-leaf"></i><h3>Ciencias Naturales</h3><p>Explora animales, plantas, el cuerpo humano y experimentos divertidos.</p></div>
+    </div>
+    <div class="info-box">
+      <h3>¿Sabías que?</h3>
+      <p>Las matemáticas ayudan a resolver problemas de la vida diaria, el lenguaje mejora tu comunicación y las ciencias te permiten entender cómo funciona el mundo. ¡Aprender puede ser muy divertido!</p>
+    </div>
+    <div class="imagenes-extra">
+      <img src="computadora.jpg" alt="Aprendizaje divertido">
+      <img src="niñosjugando.jpg" alt="Niños felices aprendiendo">
+    </div>
+  </section>
+
+  <section class="section" id="videos">
+    <h2>Videos Educativos</h2>
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+      <iframe width="300" height="200" src="vacalola.mp4" frameborder="0" allowfullscreen></iframe>
+      <iframe width="300" height="200" src="bodoque.mp4" frameborder="0" allowfullscreen></iframe>
+      <iframe width="300" height="200" src="pollitoenradio.mp4" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- NUEVAS SECCIONES MOSTRADAS POR EL MENÚ -->
+  <section class="interactive-content" id="matematicas">
+    <h3>¡Bienvenido a Matemáticas!</h3>
+    <p>Resuelve ejercicios, juega con números y pon a prueba tu memoria matemática.</p>
+  </section>
+
+  <section class="interactive-content" id="lenguaje">
+    <h3>Explora el Lenguaje</h3>
+    <p>Practica escritura, lectura y juega con palabras.</p>
+  </section>
+
+  <section class="interactive-content" id="ciencias">
+    <h3>Descubre la Ciencia</h3>
+    <p>Animales, plantas, el cuerpo humano y divertidos experimentos.</p>
+  </section>
+
+  <section class="interactive-content" id="animales">
+    <h3>¿Cómo dicen los animales?</h3>
+    <p>Escucha los sonidos de vacas, perros, gatos y más.</p>
+    <button onclick="document.getElementById('sonidoPerro').play()">🐶 Ladrido</button>
+    <button onclick="document.getElementById('sonidoVaca').play()">🐮 Mugido</button>
+    <audio id="sonidoPerro" src="https://www.soundjay.com/animal/dog-barking-1.mp3"></audio>
+    <audio id="sonidoVaca" src="https://www.soundjay.com/animal/cow-moo1.mp3"></audio>
+  </section>
+
+  <section class="interactive-content" id="colores">
+    <h3>Aprende los Colores</h3>
+    <p>Rojo, azul, verde, amarillo... ¡Descúbrelos todos con juegos!</p>
+  </section>
+
+  <section class="interactive-content" id="himno_ecuador">
+    <h3>Himno Nacional del Ecuador</h3>
+    <audio controls>
+      <source src="https://www.presidencia.gob.ec/wp-content/uploads/downloads/2012/10/himno_nacional_del_ecuador.mp3" type="audio/mpeg">
+      Tu navegador no soporta audio HTML.
+    </audio>
+  </section>
+
+  <section class="interactive-content" id="himno_fya">
+    <h3>Himno de Fe y Alegría</h3>
+    <p>🎶 Muy pronto podrás escucharlo aquí.</p>
+  </section>
+
+  <footer>
+    © 2025 Chevrolet Kids. Hecho con ♥ para mentes curiosas.
+  </footer>
+
+  <script>
+    function toggleDropdown() {
+      const menu = document.getElementById("dropdownMenu");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.interactive-content').forEach(div => {
+        div.style.display = 'none';
+      });
+      const seccion = document.getElementById(id);
+      if (seccion) {
+        seccion.style.display = 'block';
+        window.scrollTo({ top: seccion.offsetTop - 80, behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>

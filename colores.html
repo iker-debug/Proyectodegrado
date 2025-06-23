@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Explora los Colores</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #fff9c4);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff5722;
+      font-size: 3em;
+      margin-top: 20px;
+    }
+
+    .color-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px;
+    }
+
+    .color-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .color-circle:hover {
+      transform: scale(1.2);
+    }
+
+    .game-section {
+      margin: 30px 0;
+    }
+
+    button {
+      background-color: #ffcc80;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: #ffa726;
+    }
+
+    #guess-result {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+<h1>¡Explora el Mundo de los Colores!</h1>
+
+<div class="color-grid" id="colorGrid">
+</div>
+
+<div class="game-section">
+  <h2>Juego 1: Mezcla de Colores</h2>
+  <p>Selecciona dos colores para ver su mezcla:</p>
+  <select id="color1">
+    <option value="">-- Color 1 --</option>
+  </select>
+  <select id="color2">
+    <option value="">-- Color 2 --</option>
+  </select>
+  <button onclick="mixColors()">¡Mezclar!</button>
+  <div id="mixResult" style="margin-top: 15px; font-size: 20px;"></div>
+</div>
+
+<div class="game-section">
+  <h2>Juego 2: Adivina el Color</h2>
+  <p id="guessPrompt">¿Qué color es este?</p>
+  <div id="colorToGuess" style="width: 100px; height: 100px; margin: 10px auto; border-radius: 50%;"></div>
+  <input type="text" id="colorGuess" placeholder="Escribe el color aquí..." />
+  <button onclick="checkGuess()">Adivinar</button>
+  <div id="guess-result"></div>
+</div>
+
+<script>
+  const colors = [
+    {name: "Rojo", value: "#f44336"},
+    {name: "Verde", value: "#4caf50"},
+    {name: "Azul", value: "#2196f3"},
+    {name: "Amarillo", value: "#ffeb3b"},
+    {name: "Naranja", value: "#ff9800"},
+    {name: "Morado", value: "#9c27b0"},
+    {name: "Rosa", value: "#e91e63"},
+    {name: "Café", value: "#795548"},
+    {name: "Celeste", value: "#03a9f4"},
+    {name: "Turquesa", value: "#00bcd4"},
+    {name: "Verde Lima", value: "#cddc39"},
+    {name: "Gris", value: "#9e9e9e"},
+    {name: "Negro", value: "#000000"},
+    {name: "Blanco", value: "#ffffff", textColor: "#000"},
+    {name: "Coral", value: "#ff7f50"},
+    {name: "Dorado", value: "#ffd700", textColor: "#000"},
+    {name: "Plateado", value: "#c0c0c0", textColor: "#000"},
+    {name: "Lavanda", value: "#e6e6fa", textColor: "#000"},
+    {name: "Aqua", value: "#00ffff"},
+    {name: "Fucsia", value: "#ff00ff"},
+    {name: "Oliva", value: "#808000", textColor: "#fff"}
+  ];
+
+  const grid = document.getElementById("colorGrid");
+  const select1 = document.getElementById("color1");
+  const select2 = document.getElementById("color2");
+
+  colors.forEach(c => {
+    const circle = document.createElement("div");
+    circle.className = "color-circle";
+    circle.style.backgroundColor = c.value;
+    circle.textContent = c.name;
+    if (c.textColor) circle.style.color = c.textColor;
+    grid.appendChild(circle);
+
+    const opt = new Option(c.name, c.value);
+    select1.appendChild(opt.cloneNode(true));
+    select2.appendChild(opt);
+  });
+
+  function mixColors() {
+    const val1 = document.getElementById("color1").value;
+    const val2 = document.getElementById("color2").value;
+    if (val1 && val2) {
+      const mix = `linear-gradient(90deg, ${val1}, ${val2})`;
+      document.getElementById("mixResult").innerHTML = `<div style="width: 200px; height: 50px; margin: 10px auto; border: 1px solid #000; background: ${mix}; border-radius: 8px;"></div>`;
+    } else {
+      document.getElementById("mixResult").innerText = "Selecciona dos colores.";
+    }
+  }
+
+  let targetColor = "";
+
+  function startGuessingGame() {
+    const random = colors[Math.floor(Math.random() * colors.length)];
+    targetColor = random.name.toLowerCase();
+    document.getElementById("colorToGuess").style.backgroundColor = random.value;
+    document.getElementById("guess-result").innerText = "";
+    document.getElementById("colorGuess").value = "";
+  }
+
+  function checkGuess() {
+    const guess = document.getElementById("colorGuess").value.trim().toLowerCase();
+    if (guess === targetColor) {
+      document.getElementById("guess-result").innerText = "¡Correcto! 🎉";
+      startGuessingGame();
+    } else {
+      document.getElementById("guess-result").innerText = "Intenta de nuevo 😅";
+    }
+  }
+
+  startGuessingGame();
+</script>
+
+</body>
+</html>
